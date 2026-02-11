@@ -5,5 +5,4 @@ const GetMovieData = async () => {
   return res.json();
 };
 
-
 export default GetMovieData;
