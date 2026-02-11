@@ -1,11 +1,14 @@
 import Header from "./components/Header";
 import { Outlet } from "react-router-dom";
+import { useState } from "react";
 
 const Layout = () => {
+  const [search, setSearch] = useState("");
+
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900 dark:bg-black dark:text-white transition-colors duration-300">
-      <Header />
-      <Outlet />
+    <div className="min-h-screen bg-gray-100 dark:bg-black text-gray-900 dark:text-white transition-colors">
+      <Header onSearch={setSearch} />
+      <Outlet context={{ search }} />
     </div>
   );
 };

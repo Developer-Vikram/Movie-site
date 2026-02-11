@@ -100,17 +100,20 @@ const Header = ({ onSearch }) => {
 
           {/* Search */}
           <form
-            onSubmit={handleSearch}
-            className="hidden md:flex items-center bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg"
-          >
-            <input
-              className="bg-transparent outline-none text-gray-900 dark:text-white"
-              placeholder="Search movies..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <Search className="ml-2" />
-          </form>
+  onSubmit={handleSearch}
+  className="hidden md:flex items-center bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg"
+>
+  <input
+    className="bg-transparent outline-none text-gray-900 dark:text-white"
+    placeholder="Search movies..."
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+  />
+  <button type="submit">
+    <Search className="ml-2" />
+  </button>
+</form>
+
 
           {/* Right */}
           <div className="flex items-center gap-4">

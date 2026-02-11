@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 const AnimeDetails = () => {
   const { movie_ID } = useParams();
 
-  // get saved movies from localStorage
+  
   const savedMovies =
     JSON.parse(localStorage.getItem("movies")) || [];
     console.log(savedMovies);
@@ -29,16 +29,16 @@ const AnimeDetails = () => {
   return (
     <>
       
-<div className="min-h-screen flex items-center justify-center 
+<div className="min-h-screen flex items-center justify-center shadow-lg hover:shadow-2xl
   bg-gradient-to-br from-gray-100 via-white to-gray-200 
   dark:from-black dark:via-gray-900 dark:to-black p-6">
 
   <div className="group w-[420px] rounded-3xl overflow-hidden
     bg-white dark:bg-gray-900
-    shadow-xl dark:shadow-2xl
+    shadow-xl dark:shadow-2xl hover:shadow-red-500/40 dark:hover:shadow-red-500/40 
     hover:scale-105 transition-all duration-300">
 
-    {/* Poster */}
+    
     <div className="relative h-[320px] overflow-hidden">
       <img
         src={backdrop_path}
@@ -46,20 +46,20 @@ const AnimeDetails = () => {
         className="h-full w-full object-cover overflow-hidden group-hover:scale-110 transition duration-500"
       />
 
-      {/* Overlay */}
+
       <div className="absolute inset-0 
         bg-gradient-to-t 
         from-white/80 via-white/20 to-transparent
         dark:from-black/80 dark:via-black/40" />
 
-      {/* Vote Badge */}
+      
       <span className="absolute top-4 right-4 
         bg-red-500 text-white text-sm px-4 py-1 rounded-full shadow-lg">
         ⭐ {vote_count}
       </span>
     </div>
 
-    {/* Content */}
+
     <div className="p-6 space-y-4">
       <h1 className="text-2xl font-extrabold 
         text-gray-900 dark:text-white">

@@ -1,25 +1,23 @@
-import React from 'react'
-import Header from '../components/Header'
-import { useLoaderData } from 'react-router-dom'
-import Card from '../components/Card';
+import { useLoaderData, useOutletContext } from "react-router-dom";
+import Card from "../components/Card";
 
 const MovieCard = () => {
+  const { search } = useOutletContext();
   const moviesData = useLoaderData();
-  {console.log(moviesData)}
+  const movies = moviesData?.data || [];
+
+  const filteredMovies = movies.filter((m) =>
+    m.original_title
+      ?.toLowerCase()
+      .includes(search.toLowerCase())
+  );
 
   return (
-    <>
-    
-
-      <ul className="grid grid-cols-4 gap-4 mt-20">
-        {moviesData?.data?.map((curMovie) => (
-          <Card
-            key={curMovie.id}
-            curMovie={curMovie}
-          />
-        ))}
-      </ul>
-    </>
+    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 p-10">
+      {filteredMovies.map((movie) => (
+        <Card key={movie.id} curMovie={movie} />
+      ))}
+    </ul>
   );
 };
 

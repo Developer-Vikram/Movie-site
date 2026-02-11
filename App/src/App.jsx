@@ -8,7 +8,7 @@ import Layout from "./Layout";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,   // 👈 ONE HEADER, ONE BODY
+    element: <Layout />,
     children: [
       {
         index: true,
